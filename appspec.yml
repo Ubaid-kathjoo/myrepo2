@@ -1,0 +1,10 @@
+version: 0.0
+os: linux
+files:
+  - source: /index.html
+    destination: /var/www/html/index.html
+hooks:
+  AfterInstall:
+    - location: scripts/install_httpd.sh
+      runas: root
+

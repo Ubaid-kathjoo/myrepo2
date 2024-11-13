@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: openjdk11
+    commands:
+      # Install Apache HTTP Server
+      - echo Installing Apache HTTPD...
+      - sudo yum install -y httpd
+  build:
+    commands:
+      # Copy the application files to the correct location
+      - echo "Copying application files..."
+      - sudo cp -r app/* /var/www/html/
+  post_build:
+    commands:
+      - echo Build completed
+
+artifacts:
+  files:
+    - '**/*'  # Include all files in the build artifacts
